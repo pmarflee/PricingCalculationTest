@@ -9,8 +9,7 @@ namespace Pricing.Core.Queries
 {
     public class GetMarkupRateQuery : IQuery<MarkupRate>
     {
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        public DateTime DepartureDate { get; set; }
         public Currency Currency { get; set; }
     }
 }

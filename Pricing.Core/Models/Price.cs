@@ -16,5 +16,10 @@ namespace Pricing.Core.Models
 
         public decimal Amount { get; private set; }
         public Currency Currency { get; private set; }
+
+        public override string ToString()
+        {
+            return Currency.Symbol + Amount.ToString("0.00");
+        }
     }
 }

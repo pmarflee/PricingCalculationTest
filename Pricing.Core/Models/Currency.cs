@@ -37,6 +37,11 @@ namespace Pricing.Core.Models
             return this.Code.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return Code;
+        }
+
         public static Currency USD = new Currency("USD", "$", "US dollar");
         public static Currency EUR = new Currency("EUR", "€", "Euro");
         public static Currency GBP = new Currency("GBP", "£", "Pound sterling");

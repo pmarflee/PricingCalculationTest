@@ -1,10 +1,6 @@
 ﻿using Pricing.Core.Models;
 using Pricing.Core.Queries;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pricing.Core.QueryHandlers
 {
@@ -18,6 +14,8 @@ namespace Pricing.Core.QueryHandlers
 
         public Currency Handle(GetCurrencyQuery query)
         {
+            // TODO: return the currency that matches the specified code
+
             throw new NotImplementedException();
         }
     }

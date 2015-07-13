@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Pricing.Core.Models;
+using Pricing.Core.Queries;
+using Pricing.Core.QueryHandlers;
+using Pricing.Core.Services;
+
 namespace Pricing.Console
 {
     class Program

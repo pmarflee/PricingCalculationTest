@@ -1,10 +1,7 @@
 ﻿using Pricing.Core.Models;
 using Pricing.Core.Queries;
-using System;
+using Pricing.Core.QueryHandlers;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pricing.Core.Services
 {

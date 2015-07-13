@@ -2,9 +2,6 @@
 using Pricing.Core.Queries;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pricing.Core.QueryHandlers
 {
@@ -21,6 +18,8 @@ namespace Pricing.Core.QueryHandlers
 
         public IEnumerable<ExchangeRate> Handle(GetExchangeRatesQuery query)
         {
+            // TODO: return all exchange rates that match the specified 'To' currency
+
             throw new NotImplementedException();
         }
     }

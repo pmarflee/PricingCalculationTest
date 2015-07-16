@@ -7,7 +7,7 @@ namespace Pricing.Core.QueryHandlers
 {
     public class GetTourDeparturesQueryHandler : IQueryHandler<GetTourDeparturesQuery, IEnumerable<TourDeparture>>
     {
-        private static TourDeparture[] _tourDepartures = {
+        private static readonly TourDeparture[] TourDepartures = {
                                                              new TourDeparture(
                                                                  1, 
                                                                  "Agadir - Morocco", 
@@ -42,9 +42,7 @@ namespace Pricing.Core.QueryHandlers
 
         public IEnumerable<TourDeparture> Handle(GetTourDeparturesQuery query)
         {
-            // TODO: return all tour departures
-
-            throw new NotImplementedException();
+            return TourDepartures;
         }
     }
 }

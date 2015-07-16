@@ -1,4 +1,5 @@
-﻿using Pricing.Core.Models;
+﻿using System.Linq;
+using Pricing.Core.Models;
 using Pricing.Core.Queries;
 using System;
 
@@ -6,7 +7,7 @@ namespace Pricing.Core.QueryHandlers
 {
     public class GetMarkupRateQueryHandler : IQueryHandler<GetMarkupRateQuery, MarkupRate>
     {
-        private static MarkupRate[] _markupRates =
+        private static readonly MarkupRate[] MarkupRates =
         {
             new MarkupRate(new DateTime(2015, 1, 1), new DateTime(2015, 6, 30), Currency.USD, 20),
             new MarkupRate(new DateTime(2015, 7, 1), new DateTime(2015, 12, 31), Currency.USD, 25),
@@ -18,10 +19,9 @@ namespace Pricing.Core.QueryHandlers
 
         public MarkupRate Handle(GetMarkupRateQuery query)
         {
-            // TODO: return the first markup rate that matches the curency
-            // and where the From-To date range is inclusive of the specified departure date
-
-            throw new NotImplementedException();
+            return MarkupRates.FirstOrDefault(rate =>
+                rate.Currency.Equals(query.Currency) &&
+                query.DepartureDate >= rate.From && query.DepartureDate <= rate.To);
         }
     }
 }

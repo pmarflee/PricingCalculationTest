@@ -1,12 +1,12 @@
-﻿using Pricing.Core.Models;
+﻿using System.Linq;
+using Pricing.Core.Models;
 using Pricing.Core.Queries;
-using System;
 
 namespace Pricing.Core.QueryHandlers
 {
     public class GetCurrencyQueryHandler : IQueryHandler<GetCurrencyQuery, Currency>
     {
-        private static readonly Currency[] _currencies = {
+        private static readonly Currency[] Currencies = {
             Currency.USD,
             Currency.EUR,
             Currency.GBP
@@ -14,9 +14,7 @@ namespace Pricing.Core.QueryHandlers
 
         public Currency Handle(GetCurrencyQuery query)
         {
-            // TODO: return the currency that matches the specified code
-
-            throw new NotImplementedException();
+            return Currencies.FirstOrDefault(c => c.Code == query.Code);
         }
     }
 }

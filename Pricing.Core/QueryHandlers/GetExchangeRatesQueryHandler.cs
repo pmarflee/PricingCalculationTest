@@ -1,13 +1,13 @@
-﻿using Pricing.Core.Models;
+﻿using System.Linq;
+using Pricing.Core.Models;
 using Pricing.Core.Queries;
-using System;
 using System.Collections.Generic;
 
 namespace Pricing.Core.QueryHandlers
 {
     public class GetExchangeRatesQueryHandler : IQueryHandler<GetExchangeRatesQuery, IEnumerable<ExchangeRate>>
     {
-        private static ExchangeRate[] _exchangeRates = {
+        private static readonly ExchangeRate[] ExchangeRates = {
                                                            new ExchangeRate(Currency.USD, Currency.EUR, 1.11560M),
                                                            new ExchangeRate(Currency.EUR, Currency.USD, 0.89638M),
                                                            new ExchangeRate(Currency.USD, Currency.GBP, 1.55160M),
@@ -18,9 +18,7 @@ namespace Pricing.Core.QueryHandlers
 
         public IEnumerable<ExchangeRate> Handle(GetExchangeRatesQuery query)
         {
-            // TODO: return all exchange rates that match the specified 'To' currency
-
-            throw new NotImplementedException();
+            return ExchangeRates.Where(rate => rate.To.Equals(query.To));
         }
     }
 }

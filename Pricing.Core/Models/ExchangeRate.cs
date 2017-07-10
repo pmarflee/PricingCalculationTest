@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pricing.Core.Models
 {
@@ -22,9 +18,36 @@ namespace Pricing.Core.Models
         public Price Convert(Price price)
         {
             // To perform a currency conversion, divide the local price by the conversion rate
-            // and return a new price in the selling currency
+            // and return a new price in the selling currency.
+            // Prices should be rounded to 2dp.
 
             throw new NotImplementedException();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is ExchangeRate)
+            {
+                ExchangeRate other = (ExchangeRate)obj;
+                return From == other.From && To == other.To && Rate == other.Rate;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hash = 17;
+                // Suitable nullity checks etc, of course :)
+                hash = hash * 23 + From.GetHashCode();
+                hash = hash * 23 + To.GetHashCode();
+                hash = hash * 23 + Rate.GetHashCode();
+                return hash;
+            }
         }
     }
 }

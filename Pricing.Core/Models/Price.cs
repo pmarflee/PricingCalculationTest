@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pricing.Core.Models
+﻿namespace Pricing.Core.Models
 {
-    public struct Price
+    public class Price
     {
-        public Price(decimal amount, Currency currency) : this()
+        public Price(decimal amount, Currency currency)
         {
             Amount = amount;
             Currency = currency;
@@ -20,6 +14,31 @@ namespace Pricing.Core.Models
         public override string ToString()
         {
             return Currency.Symbol + Amount.ToString("0.00");
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Price)
+            {
+                Price other = (Price)obj;
+                return Amount == other.Amount && Currency == other.Currency;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hash = 17;
+                // Suitable nullity checks etc, of course :)
+                hash = hash * 23 + Amount.GetHashCode();
+                hash = hash * 23 + Currency.GetHashCode();
+                return hash;
+            }
         }
     }
 }

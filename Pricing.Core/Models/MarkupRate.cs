@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pricing.Core.Models
 {
@@ -25,6 +21,8 @@ namespace Pricing.Core.Models
         {
             // To mark up a price, return a value equal to the current price
             // plus the proportion of the value indicated by PercentageRate
+
+            // The price returned should be rounded to 2dp
 
             throw new NotImplementedException();
         }

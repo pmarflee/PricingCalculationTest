@@ -1,10 +1,14 @@
 ﻿using Pricing.Core.Models;
-using System.Collections.Generic;
 
 namespace Pricing.Core.Queries
 {
-    public class GetExchangeRatesQuery : IQuery<IEnumerable<ExchangeRate>>
+    public class GetExchangeRateQuery : IQuery<ExchangeRate>
     {
+        /// <summary>
+        /// The currency to convert from
+        /// </summary>
+        public Currency From { get; set; }
+
         /// <summary>
         /// The currency to convert to
         /// </summary>

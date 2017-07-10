@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pricing.Core.Models
+﻿namespace Pricing.Core.Models
 {
-    public struct Currency
+    public class Currency
     {
-        public Currency(string code, string symbol, string description) : this()
+        public Currency(string code, string symbol, string description)
         {
             Code = code;
             Symbol = symbol;
@@ -24,7 +18,7 @@ namespace Pricing.Core.Models
             if (obj is Currency)
             {
                 Currency other = (Currency)obj;
-                return this.Code == other.Code;
+                return Code == other.Code;
             }
             else
             {
@@ -34,16 +28,12 @@ namespace Pricing.Core.Models
 
         public override int GetHashCode()
         {
-            return this.Code.GetHashCode();
+            return Code.GetHashCode();
         }
 
         public override string ToString()
         {
             return Code;
         }
-
-        public static Currency USD = new Currency("USD", "$", "US dollar");
-        public static Currency EUR = new Currency("EUR", "€", "Euro");
-        public static Currency GBP = new Currency("GBP", "£", "Pound sterling");
     }
 }

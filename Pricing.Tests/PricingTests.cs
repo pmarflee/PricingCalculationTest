@@ -27,11 +27,8 @@ namespace Pricing.Tests
         [TestMethod]
         public void ConvertPriceFromEURToUSD()
         {
-            var priceEUR = new Price(250, CurrencyTestData.EUR);
             var priceUSDExpected = new Price(278.9M, CurrencyTestData.USD);
-            ExchangeRate exchangeRateEURToUSD = null;
-
-            var priceUSDActual = exchangeRateEURToUSD.Convert(priceEUR);
+            var priceUSDActual = ExchangeRateTestData.EURToUSD.Convert(new Price(250M, CurrencyTestData.EUR));
 
             Assert.AreEqual(priceUSDExpected, priceUSDActual);
         }
@@ -39,11 +36,8 @@ namespace Pricing.Tests
         [TestMethod]
         public void ConvertPriceFromUSDToGBP()
         {
-            var priceUSD = new Price(250, CurrencyTestData.USD);
             var priceGBPExpected = new Price(161.12M, CurrencyTestData.GBP);
-            ExchangeRate exchangeRateUSDToGBP = null;
-
-            var priceGBPActual = exchangeRateUSDToGBP.Convert(priceUSD);
+            var priceGBPActual = ExchangeRateTestData.USDToGBP.Convert(new Price(250M, CurrencyTestData.USD));
 
             Assert.AreEqual(priceGBPExpected, priceGBPActual);
         }
@@ -51,11 +45,8 @@ namespace Pricing.Tests
         [TestMethod]
         public void ConvertPriceFromGBPToEUR()
         {
-            var priceGBP = new Price(250, CurrencyTestData.GBP);
             var priceEURExpected = new Price(347.71M, CurrencyTestData.EUR);
-            ExchangeRate exchangeRateGBPToEUR = null;
-
-            var priceEURActual = exchangeRateGBPToEUR.Convert(priceGBP);
+            var priceEURActual = ExchangeRateTestData.GBPToEUR.Convert(new Price(250M, CurrencyTestData.GBP));
 
             Assert.AreEqual(priceEURExpected, priceEURActual);
         }
@@ -147,7 +138,7 @@ namespace Pricing.Tests
             var markedUpPrice = markupRate.Markup(price);
 
             Assert.AreEqual(currency, markedUpPrice.Currency);
-            Assert.AreEqual(312.5, markedUpPrice.Amount);
+            Assert.AreEqual(312.5M, markedUpPrice.Amount);
         }
 
         [TestMethod]
@@ -158,7 +149,7 @@ namespace Pricing.Tests
             var result = TourDeparturePricingService.CalculatePrice(tourDeparture, tourDeparture.LocalCost.Currency);
 
             Assert.AreEqual(tourDeparture, result.TourDeparture);
-            Assert.AreEqual(575, result.SellingPrice.Amount);
+            Assert.AreEqual(575M, result.SellingPrice.Amount);
             Assert.AreEqual(CurrencyTestData.GBP, result.SellingPrice.Currency);
         }
 
@@ -170,7 +161,7 @@ namespace Pricing.Tests
             var result = TourDeparturePricingService.CalculatePrice(tourDeparture, CurrencyTestData.USD);
 
             Assert.AreEqual(tourDeparture, result.TourDeparture);
-            Assert.AreEqual(969.75, result.SellingPrice.Amount);
+            Assert.AreEqual(969.75M, result.SellingPrice.Amount);
             Assert.AreEqual(CurrencyTestData.USD, result.SellingPrice.Currency);
         }
     }

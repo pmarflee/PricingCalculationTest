@@ -93,7 +93,7 @@ namespace Pricing.Tests
 
             Assert.IsNotNull(rate);
             Assert.AreEqual(CurrencyTestData.USD, rate.Currency);
-            Assert.AreEqual(20, rate.PercentageRate);
+            Assert.AreEqual(20M, rate.PercentageRate);
         }
 
         [TestMethod]
@@ -108,7 +108,7 @@ namespace Pricing.Tests
 
             Assert.IsNotNull(rate);
             Assert.AreEqual(CurrencyTestData.GBP, rate.Currency);
-            Assert.AreEqual(18, rate.PercentageRate);
+            Assert.AreEqual(18M, rate.PercentageRate);
         }
 
         [TestMethod]
@@ -123,7 +123,7 @@ namespace Pricing.Tests
 
             Assert.IsNotNull(rate);
             Assert.AreEqual(CurrencyTestData.EUR, rate.Currency);
-            Assert.AreEqual(35, rate.PercentageRate);
+            Assert.AreEqual(35M, rate.PercentageRate);
         }
 
         [TestMethod]
@@ -133,7 +133,7 @@ namespace Pricing.Tests
             var price = new Price(250M, currency);
             var markupRate = new MarkupRate(
                 new DateTime(2017, 1, 1), new DateTime(2017, 12, 31), 
-                currency, 25);
+                currency, 25M);
 
             var markedUpPrice = markupRate.Markup(price);
 

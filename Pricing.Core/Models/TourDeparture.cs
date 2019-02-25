@@ -2,6 +2,9 @@
 
 namespace Pricing.Core.Models
 {
+    /// <summary>
+    /// Represents a tour departure
+    /// </summary>
     public class TourDeparture
     {
         public TourDeparture(int id, string description, DateTime departureDate, Price localCost)
@@ -12,9 +15,24 @@ namespace Pricing.Core.Models
             LocalCost = localCost;
         }
 
-        public int Id { get; private set; }
-        public string Description { get; private set; }
-        public DateTime DepartureDate { get; private set; }
-        public Price LocalCost { get; private set; }
+        /// <summary>
+        /// Unique identifier for the tour departure
+        /// </summary>
+        public int Id { get; }
+
+        /// <summary>
+        /// Tour departure description
+        /// </summary>
+        public string Description { get; }
+
+        /// <summary>
+        /// Departure date 
+        /// </summary>
+        public DateTime DepartureDate { get; }
+
+        /// <summary>
+        /// Local cost
+        /// </summary>
+        public Price LocalCost { get; }
     }
 }

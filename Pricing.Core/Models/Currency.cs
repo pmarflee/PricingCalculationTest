@@ -1,5 +1,8 @@
 ﻿namespace Pricing.Core.Models
 {
+    /// <summary>
+    /// Represents a currency e.g. USD, GBP
+    /// </summary>
     public class Currency
     {
         public Currency(string code, string symbol, string description)
@@ -9,31 +12,25 @@
             Description = description;
         }
 
-        public string Code { get; private set; }
-        public string Symbol { get; private set; }
-        public string Description { get; private set; }
+        /// <summary>
+        /// Currency code
+        /// </summary>
+        public string Code { get; }
 
-        public override bool Equals(object obj)
-        {
-            if (obj is Currency)
-            {
-                Currency other = (Currency)obj;
-                return Code == other.Code;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        /// <summary>
+        /// Currency symbol
+        /// </summary>
+        public string Symbol { get; }
 
-        public override int GetHashCode()
-        {
-            return Code.GetHashCode();
-        }
+        /// <summary>
+        /// Currency description
+        /// </summary>
+        public string Description { get; }
 
-        public override string ToString()
-        {
-            return Code;
-        }
+        public override bool Equals(object obj) => obj is Currency other ? Code == other.Code : false;
+
+        public override int GetHashCode() => Code.GetHashCode();
+
+        public override string ToString() => Code;
     }
 }

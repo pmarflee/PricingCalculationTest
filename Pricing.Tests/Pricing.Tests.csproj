@@ -50,12 +50,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CurrencyTestData.cs" />
-    <Compile Include="ExchangeRateTestData.cs" />
-    <Compile Include="MarkupRateTestData.cs" />
-    <Compile Include="PricingTests.cs" />
+    <Compile Include="ExchangeRateConversionTests.cs" />
+    <Compile Include="GetExchangeRateTests.cs" />
+    <Compile Include="GetMarkupRateTests.cs" />
+    <Compile Include="MarkupCalculationTests.cs" />
+    <Compile Include="TestData\Currencies.cs" />
+    <Compile Include="TestData\ExchangeRates.cs" />
+    <Compile Include="TestData\MarkupRates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TourDepartureTestData.cs" />
+    <Compile Include="TestData\TourDepartures.cs" />
+    <Compile Include="TourDeparturePriceCalculationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pricing.Core\Pricing.Core.csproj">

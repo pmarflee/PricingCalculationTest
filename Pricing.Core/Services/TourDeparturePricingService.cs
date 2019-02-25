@@ -4,6 +4,9 @@ using Pricing.Core.QueryHandlers;
 
 namespace Pricing.Core.Services
 {
+    /// <summary>
+    /// Calculates tour departure prices
+    /// </summary>
     public class TourDeparturePricingService
     {
         private readonly IQueryHandler<GetExchangeRateQuery, ExchangeRate> _getExchangeRateQueryHandler;
@@ -17,6 +20,12 @@ namespace Pricing.Core.Services
             _getMarkupRateQueryHandler = getMarkupRateQueryHandler;
         }
 
+        /// <summary>
+        /// Calculates the selling price for a tour departure
+        /// </summary>
+        /// <param name="tourDeparture">The tour departure to calculate the selling price for</param>
+        /// <param name="sellingCurrency">The selling currency that the price should be calculated in</param>
+        /// <returns>The selling price for the tour departure</returns>
         public TourDepartureSellingPrice CalculatePrice(TourDeparture tourDeparture, Currency sellingCurrency)
         {
             // TODO: If selling currency is different to local currency, convert price to selling currency

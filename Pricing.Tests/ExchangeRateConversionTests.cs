@@ -8,7 +8,7 @@ namespace Pricing.Tests
     public class ExchangeRateConversionTests
     {
         /// <summary>
-        /// Tests the exchnage rate conversion of a price from Euros to Dollars
+        /// Tests the exchange rate conversion of a price from Euros to Dollars
         /// </summary>
         [TestMethod]
         public void ConvertPriceFromEURToUSD()
